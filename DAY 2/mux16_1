@@ -1,0 +1,23 @@
+module mux16(s,y);
+input [4:0]s;
+reg [15:0]a;
+output y;
+wire [14:0]w;
+wire [15:0]a;
+assign w[0]=~s[0]&a[0]|s[0]&a[1];
+assign w[1]=~s[0]&a[2]|s[0]&a[3];
+assign w[2]=~s[0]&a[4]|s[0]&a[5];
+assign w[3]=~s[0]&a[6]|s[0]&a[7];
+assign w[4]=~s[0]&a[8]|s[0]&a[9];
+assign w[5]=~s[0]&a[10]|s[0]&a[11];
+assign w[6]=~s[0]&a[12]|s[0]&a[13];
+assign w[7]=~s[0]&a[14]|s[0]&a[15];
+assign w[8]=~s[1]&w[0]|s[1]&w[1];
+assign w[9]=~s[1]&w[2]|s[1]&w[3];
+assign w[10]=~s[1]&w[4]|s[1]&w[5];
+assign w[11]=~s[1]&w[6]|s[1]&w[7];
+assign w[12]=~s[2]&w[8]|s[2]&w[9];
+assign w[13]=~s[2]&w[10]|s[2]&w[11];
+assign w[12]=~s[2]&w[8]|s[2]&w[9];
+assign y=~s[3]&w[12]|s[3]&w[13];
+endmodule
