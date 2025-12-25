@@ -1,0 +1,13 @@
+module binary_counter(clk,reset,Q);
+input clk,reset;
+output reg [3:0]Q;
+always @(posedge clk)
+begin 
+if (reset)
+Q<=0;
+else if (Q==9)
+Q<=0;
+else
+Q<=Q+1;
+end
+endmodule
